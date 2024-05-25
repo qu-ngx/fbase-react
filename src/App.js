@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import { Auth } from './components/auth';
 
 function App() {
   return (
-    <div className="App"> Firebase Test </div>
+    <div className="App">
+      <Auth />
+    </div>
   );
 }
 
