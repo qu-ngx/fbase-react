@@ -17,7 +17,7 @@ function App() {
           ...doc.data(),
           id: doc.id,
         }));
-        console.log(filteredData);
+        setMovieList(filteredData);
       } catch (err) {
         console.error(err);
       };
@@ -29,6 +29,22 @@ function App() {
   return (
     <div className="App">
       <Auth />
+
+      <div>
+        <input placeholder='Movie title...' />
+        <input placeholder='Release Date....' type="number" />
+        <input type='checkbox' />
+        <label> Received an Oscar </label>
+      </div>
+      <div>
+        {(movieList ?? []).map((movie) => (
+          <div>
+            <h1 style={{ color: movie.receivedAnOscar ? "green" : "red" }}> {movie?.title} </h1>
+            <p> Date: {movie?.releaseDate} </p>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }
